@@ -1,0 +1,1 @@
+in listing page of owner account.. we need to set an option to temporarly desable a listing .. bcs what if we gave the property for rent at that time we dont want that to be listed right?

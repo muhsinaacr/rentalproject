@@ -1,0 +1,166 @@
+/* =============================================================
+   src/theme.css
+   Global CSS variables for Light / Dark mode
+   Import in App.jsx: import './theme.css'
+   ============================================================= */
+
+/* ── Light Mode (default) ──────────────────────────────────── */
+:root {
+  /* Backgrounds */
+  --bg-primary:    #fafafa;
+  --bg-secondary:  #f5f5f5;
+  --bg-card:       #ffffff;
+
+  /* Borders */
+  --border-color:  #f0f0f0;
+  --border-subtle: #fafafa;
+
+  /* Text */
+  --text-primary:     #111111;
+  --text-secondary:   #374151;
+  --text-muted:       #888888;
+  --text-placeholder: #aaaaaa;
+
+  /* Inputs */
+  --input-bg:     #ffffff;
+  --input-border: #e5e7eb;
+
+  /* Buttons */
+  --btn-primary-bg:   #111111;
+  --btn-primary-text: #ffffff;
+
+  /* Accent */
+  --accent-purple: #534AB7;
+
+  /* AI / special box */
+  --ai-box-bg:     #f5f5ff;
+  --ai-box-border: #e0e0ff;
+
+  /* Status tags */
+  --tag-green-bg:     #f0fdf4;
+  --tag-green-border: #bbf7d0;
+  --tag-green-text:   #166534;
+
+  --tag-yellow-bg:     #fffbeb;
+  --tag-yellow-border: #fde68a;
+  --tag-yellow-text:   #92400e;
+
+  --tag-red-bg:     #fff0f0;
+  --tag-red-border: #ffd0d0;
+  --tag-red-text:   #cc0000;
+
+  /* ✅ Action highlight card (Add New Listing) */
+  --action-highlight-bg:   #111111;
+  --action-highlight-text: #ffffff;
+  --action-highlight-desc: rgba(255, 255, 255, 0.7);
+}
+
+/* ── Dark Mode ─────────────────────────────────────────────── */
+[data-theme="dark"] {
+  /* Backgrounds */
+  --bg-primary:    #0f172a;
+  --bg-secondary:  #1e293b;
+  --bg-card:       #1e293b;
+
+  /* Borders */
+  --border-color:  #334155;
+  --border-subtle: #1e293b;
+
+  /* Text */
+  --text-primary:     #f1f5f9;
+  --text-secondary:   #cbd5e1;
+  --text-muted:       #94a3b8;
+  --text-placeholder: #64748b;
+
+  /* Inputs */
+  --input-bg:     #0f172a;
+  --input-border: #334155;
+
+  /* Buttons */
+  --btn-primary-bg:   #f1f5f9;
+  --btn-primary-text: #0f172a;
+
+  /* Accent */
+  --accent-purple: #818cf8;
+
+  /* AI / special box */
+  --ai-box-bg:     #1e1b4b;
+  --ai-box-border: #3730a3;
+
+  /* Status tags */
+  --tag-green-bg:     #052e16;
+  --tag-green-border: #166534;
+  --tag-green-text:   #4ade80;
+
+  --tag-yellow-bg:     #1c1407;
+  --tag-yellow-border: #92400e;
+  --tag-yellow-text:   #fbbf24;
+
+  --tag-red-bg:     #1c0a0a;
+  --tag-red-border: #991b1b;
+  --tag-red-text:   #f87171;
+
+  /* ✅ Keep highlight card BLACK in dark mode — white text stays visible */
+  --action-highlight-bg:   #111111;
+  --action-highlight-text: #ffffff;
+  --action-highlight-desc: rgba(255, 255, 255, 0.65);
+}
+
+/* ── Native element resets for dark mode ───────────────────── */
+[data-theme="dark"] input,
+[data-theme="dark"] select,
+[data-theme="dark"] textarea {
+  color-scheme: dark;
+}
+
+/* Smooth transition when toggling */
+*, *::before, *::after {
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.1s ease;
+}
+/* ── Aliases for --color-* naming convention (used in DocAnalyzer etc.) ──── */
+:root {
+  --color-background-primary:   var(--bg-card);
+  --color-background-secondary: var(--bg-secondary);
+  --color-text-primary:         var(--text-primary);
+  --color-text-secondary:       var(--text-secondary);
+  --color-border-secondary:     var(--input-border);
+  --color-border-tertiary:      var(--border-color);
+  --font-sans:                  -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Info (blue) */
+  --color-background-info: #eff6ff;
+  --color-text-info:       #1d4ed8;
+
+  /* Danger (red) */
+  --color-background-danger: #fff0f0;
+  --color-text-danger:       #cc0000;
+
+  /* Success (green) */
+  --color-background-success: #f0fdf4;
+  --color-text-success:       #166534;
+
+  /* Warning (yellow) */
+  --color-background-warning: #fffbeb;
+  --color-text-warning:       #92400e;
+}
+
+[data-theme="dark"] {
+  --color-background-primary:   var(--bg-card);
+  --color-background-secondary: var(--bg-secondary);
+  --color-text-primary:         var(--text-primary);
+  --color-text-secondary:       var(--text-secondary);
+  --color-border-secondary:     var(--input-border);
+  --color-border-tertiary:      var(--border-color);
+
+  --color-background-info: #1e3a5f;
+  --color-text-info:       #93c5fd;
+
+  --color-background-danger: #3b0a0a;
+  --color-text-danger:       #f87171;
+
+  --color-background-success: #052e16;
+  --color-text-success:       #4ade80;
+
+  --color-background-warning: #1c1407;
+  --color-text-warning:       #fbbf24;
+}
