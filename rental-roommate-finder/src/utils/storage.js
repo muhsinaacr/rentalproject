@@ -1,17 +1,6 @@
-export function initializeApp() {
-  const users = JSON.parse(localStorage.getItem('users') || '[]')
-  const adminExists = users.find(u => u.role === 'admin')
-  if (!adminExists) {
-    users.push({
-      id: 'admin001',
-      name: 'Administrator',
-      email: 'admin@rentmate.ai',
-      password: 'admin123',
-      role: 'admin'
-    })
-    localStorage.setItem('users', JSON.stringify(users))
-  }
-}
+// Admin accounts are created on the backend (see rentmate-backend/setup.js),
+// so nothing is seeded in the browser anymore.
+export function initializeApp() {}
 
 export function getCurrentUser() {
   if (window.location.pathname.startsWith('/admin')) {

@@ -75,9 +75,13 @@ DB_NAME=rentmate_db
 JWT_SECRET=a_long_random_string
 PORT=5000
 GROQ_API_KEY=your_groq_api_key
+ADMIN_EMAIL=admin@example.com
+ADMIN_PASSWORD=choose_a_strong_password
 ```
 
 > The `.env` file holds secrets and is excluded from Git. Never commit it.
+
+`setup.js` uses `ADMIN_EMAIL` and `ADMIN_PASSWORD` to create the admin account you log in with at `/admin`.
 
 Create the database and tables, then run the migration scripts that your setup needs:
 

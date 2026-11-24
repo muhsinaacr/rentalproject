@@ -1,4 +1,5 @@
 const mysql = require('mysql2')
+const bcrypt = require('bcryptjs')
 require('dotenv').config()
 
 const connection = mysql.createConnection({
@@ -138,9 +139,6 @@ CREATE TABLE IF NOT EXISTS unlocks (
   FOREIGN KEY (seeker_id) REFERENCES users(id),
   FOREIGN KEY (listing_id) REFERENCES listings(id)
 );
-
-INSERT IGNORE INTO users (id, name, email, password, role)
-VALUES (1, 'Administrator', 'admin@rentmate.ai', '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lJWy', 'admin');
 `
 
 const statements = SQL.split(';').map(s => s.trim()).filter(s => s.length > 0)
@@ -156,10 +154,30 @@ async function runSetup() {
   }
 }
 
+// Creates the admin account from ADMIN_EMAIL / ADMIN_PASSWORD in .env
+// (nothing is hardcoded, so no default password ends up on GitHub)
+async function createAdmin() {
+  const email = process.env.ADMIN_EMAIL
+  const password = process.env.ADMIN_PASSWORD
+  if (!email || !password) {
+    console.log('⚠️  ADMIN_EMAIL / ADMIN_PASSWORD not set in .env, so no admin user was created.')
+    return
+  }
+  const hash = await bcrypt.hash(password, 10)
+  await new Promise((resolve, reject) => {
+    connection.query(
+      "INSERT IGNORE INTO users (id, name, email, password, role) VALUES (1, 'Administrator', ?, ?, 'admin')",
+      [email, hash],
+      (err) => (err ? reject(err) : resolve())
+    )
+  })
+  console.log('✅ Admin user created →', email)
+}
+
 runSetup()
+  .then(createAdmin)
   .then(() => {
     console.log('✅ Database and all tables created successfully!')
-    console.log('✅ Admin user created → admin@rentmate.ai / admin123')
     connection.end()
   })
   .catch((err) => {
