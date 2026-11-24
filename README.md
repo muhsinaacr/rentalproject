@@ -16,6 +16,28 @@ RentMate is a full-stack web app that helps people find rental homes and compati
 - **Fraud detection** and an admin dashboard for moderation and support queries.
 - **PDF export** of reports.
 
+## Screenshots
+
+**Browse listings with AI match scores**
+
+![Browse listings](screenshots/browse-listings.png)
+
+**AI roommate matcher with a compatibility breakdown**
+
+![AI roommate matcher](screenshots/ai-matcher.png)
+
+**Rent analysis with price forecast**
+
+![Rent analysis](screenshots/rent-analysis.png)
+
+**AI chatbot assistant**
+
+![AI chatbot](screenshots/ai-chatbot.png)
+
+**Login page**
+
+![Login](screenshots/login.png)
+
 ## Tech stack
 
 | Part | Technology |
